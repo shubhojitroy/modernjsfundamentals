@@ -199,6 +199,34 @@
   // The function expression can only be invoked after assignment
   helloExpression(); // returns 'hello'
 
+  //array iterators
+  //array methods use callback to make them more flexible
+
+  // arrow functions are often used to declare callbacks as they are short and use only ine line.
+
+  //forEach()
+
+  //~ to for loop eg.
+  const colors = ['Red', 'Green', 'Blue'];
+  for(let i = 0, max = colors.length; i < max; i++) {
+    console.log(`color at position ${i} is ${colors[i]}`);    // color at position 0 is Red color at position 1 is Green color at position 2 is Blue                     
+  }
+  // but using forEach() 
+  // it will loop through the array and invoke a callback function using each value as an argument
+  // The callback function takes three parameters, 
+  // the first represents the value in the array, the second represents the current index 
+  // and the third represent the array that the callback is being called on. The example above could be written as
+
+  colors.forEach( (color, index) => console.log(`color at position ${index} is ${color}`) ); // color at position 0 is Red color at position 1 is Green color at position 2 is Blue
+
+  //map() very ~ forEach()
+  //it rtn a new array that replaces each value with the return value of the callback fn.
+  // eg. using an Anonymous fn
+  [1,2,3].map( x => console.log(2 * x) ); // 2 4 6
+  // named fn, written earlier
+  [1,2,3].map( square ) // 1 4 9
+
+
 })();
 
 var a;
