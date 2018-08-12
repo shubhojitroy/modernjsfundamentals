@@ -216,12 +216,14 @@
   // The callback function takes three parameters, 
   // the first represents the value in the array, the second represents the current index 
   // and the third represent the array that the callback is being called on. The example above could be written as
+  // executes a provided function once for each array element
 
   colors.forEach( (color, index) => console.log(`color at position ${index} is ${color}`) ); // color at position 0 is Red color at position 1 is Green color at position 2 is Blue
 
   //map() very ~ forEach()
-  
+
   //it rtn a new array that replaces each value with the return value of the callback fn.
+  // creates a new array with the results of calling a provided function on every element in the calling array.
   // eg. using an Anonymous fn
   [1,2,3].map( x => console.log(2 * x) ); // 2 4 6
   // named fn, written earlier
@@ -232,6 +234,15 @@
   ['red','green','blue'].map( color => console.log(`<p> ${color.toUpperCase()} </p>`) ); // <p> RED </p> <p> GREEN </p> <p> BLUE </p>  
   // common for callbacks to only use the first, index, parameter, but the next example shows all three parameters being used
   ['red','green','blue'].map( (color, index, array) => console.log(`Element ${index} is ${color}. There are ${array.length} items in total.`) ); //Element 0 is red. There are 3 items in total. Element 1 is green. There are 3 items in total. Element 2 is blue. There are 3 items in total.
+
+  // Reduce()
+  // The reduce() method is another method that iterates over each value in the array, 
+  // but it cumulatively combines each result to return a single value.
+  // is is often used to calculate statistics such as averages from data stored in an array. 
+  // It usually takes two parameters. 
+  // The first parameter represents the accumulated value of all the calculations so far, and the second parameter represents the current value in the array.
+  //const acc = [1, 2, 3, 4, 5];
+  [1,2,3,4,5].reduce( (acc,val) => console.log(prev + val) );
 
 })();
 
