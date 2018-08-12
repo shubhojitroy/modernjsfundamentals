@@ -220,12 +220,18 @@
   colors.forEach( (color, index) => console.log(`color at position ${index} is ${color}`) ); // color at position 0 is Red color at position 1 is Green color at position 2 is Blue
 
   //map() very ~ forEach()
+  
   //it rtn a new array that replaces each value with the return value of the callback fn.
   // eg. using an Anonymous fn
   [1,2,3].map( x => console.log(2 * x) ); // 2 4 6
   // named fn, written earlier
   [1,2,3].map( square ) // 1 4 9
 
+  //map function used to modify arg in array and then displayed 
+  const color = ['Red', 'Green', 'Blue'];
+  ['red','green','blue'].map( color => console.log(`<p> ${color.toUpperCase()} </p>`) ); // <p> RED </p> <p> GREEN </p> <p> BLUE </p>  
+  // common for callbacks to only use the first, index, parameter, but the next example shows all three parameters being used
+  ['red','green','blue'].map( (color, index, array) => console.log(`Element ${index} is ${color}. There are ${array.length} items in total.`) ); //Element 0 is red. There are 3 items in total. Element 1 is green. There are 3 items in total. Element 2 is blue. There are 3 items in total.
 
 })();
 
