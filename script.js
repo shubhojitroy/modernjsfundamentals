@@ -241,8 +241,37 @@
   // is is often used to calculate statistics such as averages from data stored in an array. 
   // It usually takes two parameters. 
   // The first parameter represents the accumulated value of all the calculations so far, and the second parameter represents the current value in the array.
-  //const acc = [1, 2, 3, 4, 5];
-  [1,2,3,4,5].reduce( (acc,val) => console.log(prev + val) );
+  // Thhe reduce() method reduces the array to a single value. 
+  // The reduce() method executes a provided function for each value of the array (from left-to-right). 
+  // The return value of the function is stored in an accumulator (result/total). 
+  // Note: reduce() does not execute the function for array elements without values.
+  //const total = [1,2,3,4,5].reduce( (acc,val) => (acc + val, 0) );
+
+  const array1 = [1, 2, 3, 4];
+  const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+  console.log(reducer); //(accumulator, currentValue) => accumulator + currentValue
+
+  // 1 + 2 + 3 + 4
+  console.log(array1.reduce(reducer));
+  // expected output: 10
+
+  // 5 + 1 + 2 + 3 + 4
+  console.log(array1.reduce(reducer, 5));
+  // expected output: 15
+
+  var total = [ 0, 1, 2, 3 ].reduce(
+    ( accumulator, currentValue ) => accumulator + currentValue,
+    0
+  );
+
+  console.log(total); //6
+
+  //second parameter after the callback -> The reduce() method also takes a second parameter after the callback, which is the initial value of the accumulator, acc.
+
+  var cumulative = [1,2,3,4,5].reduce( (acc,val) => acc + val,10);
+
+  console.log(cumulative); //25
 
 })();
 
