@@ -273,6 +273,50 @@
 
   console.log(cumulative); //25
 
+  //cal avg word length
+  const sentence = 'The quick brown fox jumped over the lazy dog';
+  console.log(sentence);
+  //split method
+  var splits = sentence.split(' ', 9);
+  console.log(splits); // (9) ["The", "quick", "brown", "fox", "jumped", "over", "the", "lazy", "dog"]
+  // calculate the total number of letters in the sentence by using reduce method
+
+  const accLength = splits.reduce( (acc, splits) => acc + splits.length, 0);
+  console.log(accLength); // 36
+
+  const avgAccLength = accLength/splits.length;
+  console.log(avgAccLength); // 4
+
+  // Filter()
+  // The filter() method returns a new array 
+  // it only contains items from the original array
+  // which  returns true when passed to the callback
+  // provides useful way to find all truthy value rom an array
+
+  const numbers = [ 2, 7, 6, 5, 11, 23, 12 ]
+
+  console.log(numbers.filter(x => x%2 === 0 ) ); // this returns true if the number is even ->(3) [2, 6, 12]
+
+  const array = [ 0, 1, '0', false, true, 'hello' ];
+  console.log(array.filter(Boolean) ); // (4) [1, "0", true, "hello"]
+  // in the abv Boolean() rtns the boolean representation of a vale
+
+  // falsy value and not operator -> '!' -> complement of a value's boolean representation
+  console.log(array.filter(x => !x) ); // (2) [0, false]
+
+  // chaining iterators
+  // create some powerful transformations of data stored in arrays.
+  // by chaining methods together
+
+  //eg
+  // map() method chained with reduce() method
+  console.log([1,2,3].map( x => x*x ).reduce((acc,x) => acc + x ) ); //14
+
+  // more complex example
+
+  const sales = [ 100, 230, 55];
+  totalAfterTaxSales = sales.map( (amount) => amount * 1.15 ).reduce( (acc,val) => acc + val );
+  console.log(totalAfterTaxSales); // 442.75
 })();
 
 var a;
