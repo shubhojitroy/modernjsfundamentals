@@ -241,7 +241,7 @@
   // is is often used to calculate statistics such as averages from data stored in an array. 
   // It usually takes two parameters. 
   // The first parameter represents the accumulated value of all the calculations so far, and the second parameter represents the current value in the array.
-  // Thhe reduce() method reduces the array to a single value. 
+  // The reduce() method reduces the array to a single value. 
   // The reduce() method executes a provided function for each value of the array (from left-to-right). 
   // The return value of the function is stored in an accumulator (result/total). 
   // Note: reduce() does not execute the function for array elements without values.
