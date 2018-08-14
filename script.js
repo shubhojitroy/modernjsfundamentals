@@ -1,5 +1,6 @@
 (function () {
   //'use strict';
+  // note retun keyword is being replaced with console.log to be able to printout the result in console for studying JS.
   let a = 'etherium';
 
   (function(){
@@ -53,9 +54,9 @@
   }
   // in JS If a parameter is not provided as an argument when the function is invoked, the function will still be invoked, but the parameter will be given a value of undefined.
 
-  mean(1, 3, 6); // 3.3333333333333335
-  mean(1,2);  //NaN (because the function cannot do the required operation with undefined:)
-  mean(1,2,3,4,5); // 2 as will only find the mean of 1,2 and 3 
+  mean([1, 3, 6]); // 3.3333333333333335 -* box brackets intro coz of improvement in mean cal at 331 *-
+  mean([1,2]);  //NaN (because the function cannot do the required operation with undefined:)
+  mean([1,2,3,4,5]); // 2 as will only find the mean of 1,2 and 3 
 
   // Variable Numbers of Arguments
   // Arguments is not an array. It has a length property and you can read and write each element using index notation
@@ -93,7 +94,7 @@
     }
     console.log(total/values.length);
   }
-  mean(2,8,13,11,4,2); // 6.666666666666667
+  mean([2,8,13,11,4,2]); // 6.666666666666667 -* box brackets intro coz of improvement in mean cal at 331 *-
 
   // Default Parameters
   // in ES6 a convenient way to specify default parameters for a function. 
@@ -315,8 +316,43 @@
   // more complex example
 
   const sales = [ 100, 230, 55];
-  totalAfterTaxSales = sales.map( (amount) => amount * 1.15 ).reduce( (acc,val) => acc + val );
-  console.log(totalAfterTaxSales); // 442.75
+  totalAfterDiscountSales = sales.map( (amount) => amount * 1.15 ).reduce( (acc,val) => acc + val );
+  console.log(totalAfterDiscountSales); // 442.75
+
+  // improving the mean fn using the reduce fn
+  function mean(array) {
+    const total = array.reduce((a, b) => a + b);
+    console.log(total/array.length);
+  }
+
+  // adding a callback fn as the last parameter that specifies a fn to be applied to all numbers before mean is cal.
+  // helps to cal result of all numbers from the array given as the first argument.
+
+  
+  function mean(array, callback) {
+    if (callback) {
+      array.map( callback );
+    } 
+    const total = array.reduce((a, b) => a + b);
+    console.log(total/array.length); 
+    
+      /* // mean(array, callback) {
+        if (callback) {
+          array.map( callback );
+        } 
+        const total = array.reduce((a, b) => a + b);
+        console.log(total/array.length);
+      }
+      */
+  }
+
+  mean([2,5,7,11,4]); // this should just calculate the mean
+  console.log(mean); //5.8
+
+  console.log(mean([2,5,7,11,4],x => 2*x) ); // 11.6
+
+  mean([2,5,7,11,4],square); // 43
+
 })();
 
 var a;
